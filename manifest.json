@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Twitter Thread to PDF",
+  "version": "1.0",
+  "description": "Convert Twitter threads to PDF optimized for phone viewing",
+  "permissions": ["activeTab", "https://twitter.com/*"],
+  "browser_action": {
+    "default_title": "Convert to PDF"
+  },
+  "background": {
+    "scripts": ["jspdf.umd.min.js", "background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://twitter.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
